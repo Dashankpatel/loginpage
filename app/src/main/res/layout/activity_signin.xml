@@ -8,7 +8,7 @@
     android:background="#ffffff"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Activity.Signin">
 
     <TextView
         android:layout_width="match_parent"
@@ -79,12 +79,20 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#000000"
         android:text="Login"
+        android:textColor="#ffffff"
         android:textSize="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"/>
 
-
-
+    <TextView
+        android:id="@+id/create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create an Account"
+        android:layout_margin="10dp"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:textColor="@color/black" />
 
 
 
