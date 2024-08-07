@@ -78,28 +78,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         app:boxStrokeColor="#FF0000"
-        app:startIconDrawable="@drawable/phone"
-        app:endIconMode="clear_text"
-        android:hint="Phonenumber"
-        app:boxStrokeWidth="2dp"
-        app:boxCornerRadiusTopEnd="20sp"
-        app:boxCornerRadiusTopStart="20sp"
-        app:boxCornerRadiusBottomEnd="20sp"
-        app:boxCornerRadiusBottomStart="20sp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:boxStrokeColor="#FF0000"
         app:startIconDrawable="@drawable/password"
         app:endIconMode="clear_text"
         android:hint="create Password"
@@ -164,15 +142,28 @@
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"/>
 
-    <TextView
-        android:id="@+id/account"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have Account..."
         android:gravity="center"
-        android:textColor="@color/black" />
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Already have an Account ?    "
+            android:textColor="@color/black" />
 
+        <TextView
+            android:id="@+id/account"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sign in"
+            android:textColor="#008EFF" />
+
+    </LinearLayout>
 
 </LinearLayout>
