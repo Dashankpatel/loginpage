@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,16 +44,21 @@ public class Signup extends AppCompatActivity {
 //                {
                     Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), pass1.getText().toString());
 
+                    if (!pass1.equals(pass2.getText().toString()))
+                    {
+                        Toast.makeText(Signup.this, "password is wrong", Toast.LENGTH_SHORT).show();
+                        pass2.getText().toString();
+                    }
+
                     if (d==true)
                     {
                         startActivity(new Intent(Signup.this,Signin.class));
                         finish();
                     }
 
+//                }
 
-                }
-
-//            }
+            }
         });
 
         account.setOnClickListener(new View.OnClickListener() {
