@@ -1,6 +1,7 @@
 package com.example.myapplication.Activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -11,10 +12,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.Mydatabase;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Mainpage extends AppCompatActivity {
 
-    TextView tex;
+    TextView name;
+    FloatingActionButton add;
 
 
     @Override
@@ -24,9 +27,17 @@ public class Mainpage extends AppCompatActivity {
 
         Mydatabase dp = new Mydatabase(Mainpage.this);
 
-        tex = findViewById(R.id.tex);
+        name = findViewById(R.id.name);
+        add = findViewById(R.id.add);
 
-        tex.setText(dp.toString());
+        name.setText(getIntent().getStringExtra("name"));
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
     }

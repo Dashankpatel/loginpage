@@ -46,14 +46,14 @@ public class Signin extends AppCompatActivity {
                     Log.d("++ds--", "onClick: email ==>" + data.getString(1));
                     Log.d("++ds--", "onClick: pass ==>" + data.getString(2));
 
-                }
-
-
-                if (data != null && data.moveToFirst())
-                {
-                    startActivity(new Intent(Signin.this, Mainpage.class));
+                    startActivity(new Intent(Signin.this, Mainpage.class).
+                            putExtra("name",data.getString(0)).
+                            putExtra("email",data.getString(1)));
                     finish();
+
+
                 }
+
             }
         });
 
