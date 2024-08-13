@@ -1,5 +1,6 @@
 package com.example.myapplication.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -32,9 +33,13 @@ public class Mainpage extends AppCompatActivity {
 
         name.setText(getIntent().getStringExtra("name"));
 
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                startActivity(new Intent(Mainpage.this, Add.class));
+                finish();
 
             }
         });

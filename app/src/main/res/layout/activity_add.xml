@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@color/white"
+    tools:context=".Activity.Add">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20sp"
+        android:layout_gravity="center"
+        android:backgroundTint="#6B6B6B"
+        android:src="@drawable/baseline_add_a_photo_24" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="add a photo"
+        android:gravity="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:boxCornerRadiusBottomEnd="25sp"
+        app:boxCornerRadiusTopStart="25sp"
+        app:boxCornerRadiusBottomStart="25sp"
+        app:startIconDrawable="@drawable/person"
+        app:boxCornerRadiusTopEnd="25sp"
+        android:hint="Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:boxCornerRadiusBottomEnd="25sp"
+        app:boxCornerRadiusTopStart="25sp"
+        app:boxCornerRadiusBottomStart="25sp"
+        app:startIconDrawable="@drawable/telephone"
+        app:boxCornerRadiusTopEnd="25sp"
+        android:hint="Phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:boxCornerRadiusBottomEnd="25sp"
+        app:boxCornerRadiusTopStart="25sp"
+        app:boxCornerRadiusBottomStart="25sp"
+        app:startIconDrawable="@drawable/email"
+        app:boxCornerRadiusTopEnd="25sp"
+        android:hint="Email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:boxCornerRadiusBottomEnd="25sp"
+        app:boxCornerRadiusTopStart="25sp"
+        app:boxCornerRadiusBottomStart="25sp"
+        app:startIconDrawable="@drawable/people"
+        app:boxCornerRadiusTopEnd="25sp"
+        android:hint="Groups">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="250dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="25sp"
+            android:backgroundTint="@color/black"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="Cancel"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="25sp"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Save"/>
+
+    </LinearLayout>
+
+</LinearLayout>
