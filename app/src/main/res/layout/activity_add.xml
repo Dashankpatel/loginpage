@@ -30,6 +30,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         app:boxCornerRadiusBottomEnd="25sp"
+        app:boxStrokeColor="#5984A6"
         app:boxCornerRadiusTopStart="25sp"
         app:boxCornerRadiusBottomStart="25sp"
         app:startIconDrawable="@drawable/person"
@@ -39,6 +40,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/user"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,6 +50,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         app:boxCornerRadiusBottomEnd="25sp"
+        app:boxStrokeColor="#5984A6"
         app:boxCornerRadiusTopStart="25sp"
         app:boxCornerRadiusBottomStart="25sp"
         app:startIconDrawable="@drawable/telephone"
@@ -57,6 +60,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/phone"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,6 +70,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         app:boxCornerRadiusBottomEnd="25sp"
+        app:boxStrokeColor="#5984A6"
         app:boxCornerRadiusTopStart="25sp"
         app:boxCornerRadiusBottomStart="25sp"
         app:startIconDrawable="@drawable/email"
@@ -75,6 +80,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/messa"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,6 +90,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         app:boxCornerRadiusBottomEnd="25sp"
+        app:boxStrokeColor="#5984A6"
         app:boxCornerRadiusTopStart="25sp"
         app:boxCornerRadiusBottomStart="25sp"
         app:startIconDrawable="@drawable/people"
@@ -93,6 +100,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/grp"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,10 +108,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="265dp"
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/cancel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="25sp"
@@ -114,6 +123,7 @@
             android:text="Cancel"/>
 
         <Button
+            android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="25sp"

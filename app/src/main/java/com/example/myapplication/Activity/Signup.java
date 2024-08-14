@@ -40,15 +40,11 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                if (pass1.getText().toString()==pass2.getText().toString())
-//                {
-                    Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), pass1.getText().toString());
+                String password1 = pass1.getText().toString();
+                String password2 = pass2.getText().toString();
 
-                    if (!pass1.equals(pass2.getText().toString()))
-                    {
-                        Toast.makeText(Signup.this, "password is wrong", Toast.LENGTH_SHORT).show();
-                        pass2.getText().toString();
-                    }
+                if (password1.equals(password2)) {
+                    Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), password1);
 
                     if (d==true)
                     {
@@ -56,9 +52,23 @@ public class Signup extends AppCompatActivity {
                         finish();
                     }
 
+                } else {
+                    Toast.makeText(Signup.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+//                if (pass1.getText().toString()==pass2.getText().toString())
+//                {
+//                Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), pass1.getText().toString());
+
+//                    if (!pass1.equals(pass2.getText().toString()))
+//                    {
+//                        Toast.makeText(Signup.this, "password is wrong", Toast.LENGTH_SHORT).show();
+//                        pass2.getText().toString();
+//                    }
+//                Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), pass1.getText().toString());
 //                }
 
-            }
         });
 
         account.setOnClickListener(new View.OnClickListener() {

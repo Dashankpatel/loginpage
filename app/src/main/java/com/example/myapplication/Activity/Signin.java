@@ -48,7 +48,8 @@ public class Signin extends AppCompatActivity {
 
                     startActivity(new Intent(Signin.this, Mainpage.class).
                             putExtra("name",data.getString(0)).
-                            putExtra("email",data.getString(1)));
+                            putExtra("email",data.getString(1)).
+                            putExtra("passw",data.getString(2)));
                     finish();
 
 

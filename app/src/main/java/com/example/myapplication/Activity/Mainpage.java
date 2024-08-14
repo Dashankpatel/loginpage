@@ -17,7 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Mainpage extends AppCompatActivity {
 
-    TextView name;
+    TextView name,mail,passw;
     FloatingActionButton add;
 
 
@@ -29,9 +29,13 @@ public class Mainpage extends AppCompatActivity {
         Mydatabase dp = new Mydatabase(Mainpage.this);
 
         name = findViewById(R.id.name);
+        mail = findViewById(R.id.mail);
+        passw = findViewById(R.id.passw);
         add = findViewById(R.id.add);
 
         name.setText(getIntent().getStringExtra("name"));
+        mail.setText(getIntent().getStringExtra("email"));
+        passw.setText(getIntent().getStringExtra("passw"));
 
 
         add.setOnClickListener(new View.OnClickListener() {
