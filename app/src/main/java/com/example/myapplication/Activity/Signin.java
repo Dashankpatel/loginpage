@@ -42,14 +42,14 @@ public class Signin extends AppCompatActivity {
                 Cursor data = dp.userlogin(username.getText().toString(), password.getText().toString());
 
                 while (data.moveToNext()) {
-                    Log.d("++ds--", "onClick: name ==>" + data.getString(0));
-                    Log.d("++ds--", "onClick: email ==>" + data.getString(1));
-                    Log.d("++ds--", "onClick: pass ==>" + data.getString(2));
+                    Log.d("++ds--", "onClick: userid ==>" + data.getString(0));
+                    Log.d("++ds--", "onClick: name ==>" + data.getString(1));
+                    Log.d("++ds--", "onClick: email ==>" + data.getString(2));
+                    Log.d("++ds--", "onClick: pass ==>" + data.getString(3));
 
                     startActivity(new Intent(Signin.this, Mainpage.class).
-                            putExtra("name",data.getString(0)).
-                            putExtra("email",data.getString(1)).
-                            putExtra("passw",data.getString(2)));
+                            putExtra("userid",data.getString(0)).
+                            putExtra("name",data.getString(1)));
                     finish();
 
 

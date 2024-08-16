@@ -40,7 +40,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/user"
+            android:id="@+id/name"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,12 +55,12 @@
         app:boxCornerRadiusBottomStart="25sp"
         app:startIconDrawable="@drawable/telephone"
         app:boxCornerRadiusTopEnd="25sp"
-        android:hint="Phone">
+        android:hint="Number">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/phone"
+            android:id="@+id/number"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,7 +80,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/messa"
+            android:id="@+id/em"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -93,14 +93,14 @@
         app:boxStrokeColor="#5984A6"
         app:boxCornerRadiusTopStart="25sp"
         app:boxCornerRadiusBottomStart="25sp"
-        app:startIconDrawable="@drawable/people"
+        app:startIconDrawable="@drawable/gps"
         app:boxCornerRadiusTopEnd="25sp"
-        android:hint="Groups">
+        android:hint="Add">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/grp"
+            android:id="@+id/adde"
             android:textColor="@color/black"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,7 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="265dp"
+        android:layout_marginTop="145dp"
         android:orientation="horizontal">
 
         <Button

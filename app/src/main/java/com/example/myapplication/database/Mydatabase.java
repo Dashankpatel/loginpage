@@ -22,7 +22,23 @@ public class Mydatabase extends SQLiteOpenHelper {
         String table = "CREATE TABLE user(username text , email text , password text)";
         db.execSQL(table);
 
+        String contact = "CREATE TABLE contact(id integer primary key autoincrement , userid integer , name text , number text , email text , addres text)";
+        db.execSQL(contact);
+
     }
+
+    public  Boolean addcontact(int userid, String name, String number, String email, String address)
+    {
+        try {
+            String insrt = "INSERT INTO contact (userid , name , number , email , address) VALUES ("+userid+" , '"+name+"' , '"+number+"' , '"+email+"' ,'"+address+"')";
+            getWritableDatabase().execSQL(insrt);
+            return true;
+        }catch (Exception exception)
+        {
+            return false;
+        }
+    }
+
 
     public Boolean insertdata(String username,String email , String password)
     {
