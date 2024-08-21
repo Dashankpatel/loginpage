@@ -45,19 +45,15 @@ public class Signin extends AppCompatActivity {
                     Log.d("++ds--", "onClick: userid ==>" + data.getString(0));
                     Log.d("++ds--", "onClick: name ==>" + data.getString(1));
                     Log.d("++ds--", "onClick: email ==>" + data.getString(2));
-                    Log.d("++ds--", "onClick: pass ==>" + data.getString(3));
+//                    Log.d("++ds--", "onClick: pass ==>" + data.getString(3));
 
                     startActivity(new Intent(Signin.this, Mainpage.class).
                             putExtra("userid",data.getString(0)).
                             putExtra("name",data.getString(1)));
                     finish();
-
-
                 }
-
             }
         });
-
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,8 +64,6 @@ public class Signin extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 }

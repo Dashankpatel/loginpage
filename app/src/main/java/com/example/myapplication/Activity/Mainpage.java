@@ -3,6 +3,7 @@ package com.example.myapplication.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class Mainpage extends AppCompatActivity {
 
 //    TextView name;
+    ListView list;
     FloatingActionButton add;
 
 
@@ -30,6 +32,7 @@ public class Mainpage extends AppCompatActivity {
 
 //        name = findViewById(R.id.name);
         add = findViewById(R.id.add);
+        list = findViewById(R.id.list);
 
         int userid = getIntent().getIntExtra("userid",10);
 //        name.setText(getIntent().getStringExtra("name"));
@@ -44,6 +47,8 @@ public class Mainpage extends AppCompatActivity {
 
             }
         });
+
+
 
 
     }

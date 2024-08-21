@@ -19,28 +19,19 @@ public class Mydatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
 //        String table = "CREATE TABLE user(username text unique , email text , password text)";
+
+        // login username , email , password
         String table = "CREATE TABLE user(username text , email text , password text)";
         db.execSQL(table);
 
-        String contact = "CREATE TABLE contact(id integer primary key autoincrement , userid integer , name text , number text , email text , addres text)";
+        // add contact name, number, email, address
+        String contact = "CREATE TABLE contact(id integer primary key autoincrement , userid integer , name text , number text , email text , area text)";
         db.execSQL(contact);
 
     }
 
-    public  Boolean addcontact(int userid, String name, String number, String email, String address)
-    {
-        try {
-            String insrt = "INSERT INTO contact (userid , name , number , email , address) VALUES ("+userid+" , '"+name+"' , '"+number+"' , '"+email+"' ,'"+address+"')";
-            getWritableDatabase().execSQL(insrt);
-            return true;
-        }catch (Exception exception)
-        {
-            return false;
-        }
-    }
-
-
-    public Boolean insertdata(String username,String email , String password)
+    // login username , email , password return & save
+    public Boolean insertdata(String username , String email , String password)
     {
         try{
             String insert = "INSERT INTO user (username , email , password) VALUES ('"+username+"','"+email+"','"+password+"')";
@@ -55,11 +46,26 @@ public class Mydatabase extends SQLiteOpenHelper {
         }
     }
 
+    // add contact name, number, email, address return & save
+    public  Boolean addcontact(int userid, String name, String number, String email, String area)
+    {
+        try {
+            String insert = "INSERT INTO contact (userid , name , number , email , area) VALUES ("+userid+" , '"+name+"' , '"+number+"' , '"+email+"' ,'"+area+"')";
+            getWritableDatabase().execSQL(insert);
+            return true;
+        }catch (Exception exception)
+        {
+            Log.d("--fdf-*-","addcontact"+exception);
+            return false;
+        }
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    // user login username , password OK check karava
     public Cursor userlogin(String user, String pass) {
 
         String select = "SELECT * FROM user WHERE username = '"+user+"' AND password = '"+pass+"'  ";
