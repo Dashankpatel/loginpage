@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Mainpage extends AppCompatActivity {
 
-//    TextView name;
+    //    TextView name;
     ListView list;
     FloatingActionButton add;
 
@@ -30,25 +30,24 @@ public class Mainpage extends AppCompatActivity {
 
         Mydatabase dp = new Mydatabase(Mainpage.this);
 
-//        name = findViewById(R.id.name);
         add = findViewById(R.id.add);
         list = findViewById(R.id.list);
 
-        int userid = getIntent().getIntExtra("userid",10);
-//        name.setText(getIntent().getStringExtra("name"));
+        int userid = getIntent().getIntExtra("userid", 10);
+
+
+        list.setAdapter(new MyAdapter(this, userid));
 
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Mainpage.this, Add.class).putExtra("userid",userid));
+                startActivity(new Intent(Mainpage.this, Add.class).putExtra("userid", userid));
                 finish();
 
             }
         });
-
-
 
 
     }

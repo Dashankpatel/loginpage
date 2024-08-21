@@ -37,8 +37,9 @@ public class Add extends AppCompatActivity {
             public void onClick(View v) {
 
                 Mydatabase dp = new Mydatabase(Add.this);
-                Boolean t =dp.addcontact(userid,name.getText().toString(),number.getText().toString(),em.getText().toString(),area.getText().toString());
+                Boolean t =dp.addcontact(userid,name.getText().toString(),number.getText().toString(), em.getText().toString(),area.getText().toString());
                 Log.d("llllllllllllllll", "onClick: "+t);
+
                 if (t)
                 {
                     startActivity(new Intent(Add.this,Mainpage.class).putExtra("userid",userid));

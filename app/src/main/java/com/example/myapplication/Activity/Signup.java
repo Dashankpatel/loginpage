@@ -57,18 +57,6 @@ public class Signup extends AppCompatActivity {
                 }
             }
 
-//                if (pass1.getText().toString()==pass2.getText().toString())
-//                {
-//                Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), pass1.getText().toString());
-
-//                    if (!pass1.equals(pass2.getText().toString()))
-//                    {
-//                        Toast.makeText(Signup.this, "password is wrong", Toast.LENGTH_SHORT).show();
-//                        pass2.getText().toString();
-//                    }
-//                Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), pass1.getText().toString());
-//                }
-
         });
 
         account.setOnClickListener(new View.OnClickListener() {
