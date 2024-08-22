@@ -15,8 +15,7 @@ import java.util.ArrayList;
 
 public class MyAdapter extends BaseAdapter {
 
-    ArrayList<String> namelist = new ArrayList<>();
-    ArrayList<String> numlist = new ArrayList<>();
+    ArrayList<ModelClass> datalist = new ArrayList<>();
     Context context;
 
     MyAdapter(Context context, int uid) {
@@ -26,14 +25,18 @@ public class MyAdapter extends BaseAdapter {
         Cursor cr = db.selectcon(uid);
 
         while (cr.moveToNext()) {
-            namelist.add(cr.getString(2));
-            numlist.add(cr.getString(3));
+
+            ModelClass d = new ModelClass();
+            d.setName(cr.getString(2));
+            d.setNum(cr.getString(3));
+            datalist.add(d);
+
         }
     }
 
     @Override
     public int getCount() {
-        return namelist.size();
+        return datalist.size();
     }
 
     @Override
@@ -53,8 +56,8 @@ public class MyAdapter extends BaseAdapter {
 
         TextView name = vv.findViewById(R.id.sname), num = vv.findViewById(R.id.snum);
 
-        name.setText(namelist.get(position));
-        num.setText(numlist.get(position));
+        name.setText(datalist.get(position).getName());
+        num.setText(datalist.get(position).getNum());
 
         return vv;
     }

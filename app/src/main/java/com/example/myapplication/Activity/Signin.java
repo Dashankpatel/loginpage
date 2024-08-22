@@ -46,6 +46,10 @@ public class Signin extends AppCompatActivity {
                     Log.d("++ds--", "onClick: name ==>" + data.getString(1));
                     Log.d("++ds--", "onClick: email ==>" + data.getString(2));
 
+                    SplaceScreen.edit.putBoolean("status",true);
+                    SplaceScreen.edit.putInt("uid",data.getInt(0));
+                    SplaceScreen.edit.apply();
+
                     startActivity(new Intent(Signin.this, Mainpage.class).
                             putExtra("userid",data.getInt(0)).
                             putExtra("name",data.getString(1)));
