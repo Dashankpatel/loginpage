@@ -10,6 +10,8 @@ public class ModelClass {
 //        this.num = num;
 //    }
 
+
+    // alt + insert  to (getter and setter)
     public String getName() {
         return name;
     }

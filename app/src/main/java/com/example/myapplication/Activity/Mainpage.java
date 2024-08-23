@@ -20,7 +20,7 @@ public class Mainpage extends AppCompatActivity {
 
     //    TextView name;
     ListView list;
-    FloatingActionButton add;
+    FloatingActionButton add,back;
 
 
     @Override
@@ -32,6 +32,7 @@ public class Mainpage extends AppCompatActivity {
 
         add = findViewById(R.id.add);
         list = findViewById(R.id.list);
+        back = findViewById(R.id.back);
 
         int userid = getIntent().getIntExtra("userid", 10);
 
@@ -44,6 +45,19 @@ public class Mainpage extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(Mainpage.this, Add.class).putExtra("userid", userid));
+                finish();
+
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SplaceScreen.edit.putBoolean("status",false);
+                SplaceScreen.edit.apply();
+
+                startActivity(new Intent(Mainpage.this, Signin.class));
                 finish();
 
             }
