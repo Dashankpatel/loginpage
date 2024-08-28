@@ -37,7 +37,31 @@ public class Add extends AppCompatActivity {
             public void onClick(View v) {
 
                 Mydatabase dp = new Mydatabase(Add.this);
-                Boolean t =dp.addcontact(userid,name.getText().toString(),number.getText().toString(), em.getText().toString(),area.getText().toString());
+
+                String numberInput = number.getText().toString();
+                // number check karava
+                if (!numberInput.isEmpty())
+                {
+                    // number 10 digit ma j aave aena mate
+                    if (!numberInput.matches("\\d{10}")) {
+                        number.setError("Please enter a valid number");
+                        return;
+                    }
+                }
+                else
+                {
+                    number.setError("Please enter a Phone number");
+                    return;
+                }
+
+                String emailInput = em.getText().toString();
+                //  email address check karava
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+                        em.setError("Please enter a valid email address");
+                        return;
+                }
+
+                Boolean t =dp.addcontact(userid,name.getText().toString(),numberInput, emailInput,area.getText().toString());
                 Log.d("llllllllllllllll", "onClick: "+t);
 
                 if (t)
@@ -48,6 +72,37 @@ public class Add extends AppCompatActivity {
 
             }
         });
-
     }
 }
+
+
+
+//save.setOnClickListener(new View.OnClickListener() {
+//    @Override
+//    public void onClick(View v) {
+//
+//        String numberInput = number.getText().toString();
+//        String emailInput = em.getText().toString();
+//
+//        // Validate that the numberInput contains only digits
+//        if (!numberInput.matches("\\d+")) {
+//            number.setError("Please enter a valid number");
+//            return;
+//        }
+//
+//        // Validate that the emailInput is a valid email address
+//        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+//            em.setError("Please enter a valid email address");
+//            return;
+//        }
+//
+//        Mydatabase dp = new Mydatabase(Add.this);
+//        Boolean t = dp.addcontact(userid, name.getText().toString(), numberInput, emailInput, area.getText().toString());
+//        Log.d("llllllllllllllll", "onClick: " + t);
+//
+//        if (t) {
+//            startActivity(new Intent(Add.this, Mainpage.class).putExtra("userid", userid));
+//            finish();
+//        }
+//    }
+//});

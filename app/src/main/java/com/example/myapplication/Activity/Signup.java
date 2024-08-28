@@ -43,8 +43,15 @@ public class Signup extends AppCompatActivity {
                 String password1 = pass1.getText().toString();
                 String password2 = pass2.getText().toString();
 
+                String emailInput = email.getText().toString();
+                //  email address check karava
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+                    email.setError("Please enter a valid email address");
+                    return;
+                }
+
                 if (password1.equals(password2)) {
-                    Boolean d = dp.insertdata(user.getText().toString(), email.getText().toString(), password1);
+                    Boolean d = dp.insertdata(user.getText().toString(), emailInput, password1);
 
                     if (d==true)
                     {
