@@ -42,6 +42,7 @@ public class Add extends AppCompatActivity {
                 // number check karava
                 if (!numberInput.isEmpty())
                 {
+
                     // number 10 digit ma j aave aena mate
                     if (!numberInput.matches("\\d{10}")) {
                         number.setError("Please enter a valid number");
