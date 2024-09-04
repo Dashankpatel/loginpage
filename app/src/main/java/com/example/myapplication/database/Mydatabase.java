@@ -81,4 +81,12 @@ public class Mydatabase extends SQLiteOpenHelper {
 
         return cr;
     }
+
+    public void editdata(String newname, String newnumber, int contactid) {
+
+        String update ="UPDATE contact SET name = '"+newname+"' , number = '"+newnumber+"' WHERE id = "+contactid;
+        getWritableDatabase().execSQL(update);
+
+
+    }
 }

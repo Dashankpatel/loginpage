@@ -1,6 +1,7 @@
 package com.example.myapplication.Activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +18,11 @@ public class MyAdapter extends BaseAdapter {
 
     ArrayList<ModelClass> datalist = new ArrayList<>();
     Context context;
+    int uid;
 
     MyAdapter(Context context, int uid) {
         this.context = context;
+        this.uid = uid;
 
         Mydatabase db = new Mydatabase(context);
         Cursor cr = db.selectcon(uid);
@@ -29,6 +32,7 @@ public class MyAdapter extends BaseAdapter {
             ModelClass d = new ModelClass();
             d.setName(cr.getString(2));
             d.setNum(cr.getString(3));
+            d.setId(cr.getInt(0));
             datalist.add(d);
 
         }
@@ -58,6 +62,19 @@ public class MyAdapter extends BaseAdapter {
 
         name.setText(datalist.get(position).getName());
         num.setText(datalist.get(position).getNum());
+
+        name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                context.startActivity(new Intent(context, Update.class).
+                        putExtra("name",name.getText()).
+                        putExtra("num",num.getText()).
+                        putExtra("cid",datalist.get(position).getId()).
+                        putExtra("uid",uid));
+
+            }
+        });
 
         return vv;
     }

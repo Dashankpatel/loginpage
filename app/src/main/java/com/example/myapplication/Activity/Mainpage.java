@@ -1,16 +1,18 @@
 package com.example.myapplication.Activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.Mydatabase;
@@ -20,7 +22,7 @@ public class Mainpage extends AppCompatActivity {
 
     //    TextView name;
     ListView list;
-    FloatingActionButton add,back;
+    FloatingActionButton add,pop;
 
 
     @Override
@@ -28,17 +30,15 @@ public class Mainpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
 
-        Mydatabase dp = new Mydatabase(Mainpage.this);
-
         add = findViewById(R.id.add);
         list = findViewById(R.id.list);
-        back = findViewById(R.id.back);
+        pop = findViewById(R.id.pop);
 
         int userid = getIntent().getIntExtra("userid", 10);
 
+        Toast.makeText(this, ""+userid, Toast.LENGTH_SHORT).show();
 
         list.setAdapter(new MyAdapter(this, userid));
-
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,16 +50,61 @@ public class Mainpage extends AppCompatActivity {
             }
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
+
+        pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                SplaceScreen.edit.putBoolean("status",false);
-                SplaceScreen.edit.apply();
+                PopupMenu pmenu = new PopupMenu(Mainpage.this,pop);
 
-                startActivity(new Intent(Mainpage.this, Signin.class));
-                finish();
+                pmenu.inflate(R.menu.mymenu);
+                pmenu.show();
 
+                pmenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+
+                        if (item.getItemId()==R.id.logout)
+                        {
+                            Dialog dialog = new Dialog(Mainpage.this);
+                            dialog.setContentView(R.layout.dialogview_exit);
+                            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                            dialog.show();
+
+                            TextView tex = dialog.findViewById(R.id.tex);
+                            Button yes = dialog.findViewById(R.id.yes);
+                            Button no = dialog.findViewById(R.id.no);
+
+                            tex.getText();
+
+                            yes.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v)
+                                {
+                                    SplaceScreen.edit.putBoolean("status",false);
+                                    SplaceScreen.edit.apply();
+
+                                    startActivity(new Intent(Mainpage.this, Signin.class));
+                                    finish();
+                                }
+                            });
+
+                            no.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
+                        }
+
+                        else if (item.getItemId()==R.id.setting)
+                        {
+                            Toast.makeText(Mainpage.this, "setting", Toast.LENGTH_SHORT).show();
+                        }
+
+                        return false;
+                    }
+                });
             }
         });
 

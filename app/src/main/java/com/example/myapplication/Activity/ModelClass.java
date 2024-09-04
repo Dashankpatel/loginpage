@@ -2,13 +2,25 @@ package com.example.myapplication.Activity;
 
 public class ModelClass {
 
-   private String name,num;
+    private String name,num;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    private Integer id;
+
 
 //    ModelClass (String name,String num)
 //    {
 //        this.name = name;
 //        this.num = num;
 //    }
+
 
 
     // alt + insert  to (getter and setter)
