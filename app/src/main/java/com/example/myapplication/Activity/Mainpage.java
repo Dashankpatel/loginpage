@@ -36,7 +36,7 @@ public class Mainpage extends AppCompatActivity {
 
         int userid = getIntent().getIntExtra("userid", 10);
 
-        Toast.makeText(this, ""+userid, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, ""+userid, Toast.LENGTH_SHORT).show();
 
         list.setAdapter(new MyAdapter(this, userid));
 
@@ -107,7 +107,6 @@ public class Mainpage extends AppCompatActivity {
                 });
             }
         });
-
 
     }
 }

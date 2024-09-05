@@ -1,9 +1,12 @@
 package com.example.myapplication.Activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +20,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class Update extends AppCompatActivity {
 
-    Button save,cancel;
+    Button save,out,delete;
     TextInputEditText oldname,oldnumber,em,area;
 
     @Override
@@ -28,6 +31,8 @@ public class Update extends AppCompatActivity {
         oldname=findViewById(R.id.newname);
         oldnumber=findViewById(R.id.newnumber);
         save=findViewById(R.id.sav);
+        out=findViewById(R.id.out);
+        delete=findViewById(R.id.delete);
 
         String updatename = getIntent().getStringExtra("name");
         String updatenumber = getIntent().getStringExtra("num");
@@ -38,10 +43,7 @@ public class Update extends AppCompatActivity {
 
 
 
-        int userid = getIntent().getIntExtra("uid",20);
-//        Mydatabase dp = new Mydatabase(Update.this);
-//        dp.editdata(oldname.getText().toString(),oldnumber.getText().toString(),cid);
-
+        int userid = getIntent().getIntExtra("userid",20);
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +60,54 @@ public class Update extends AppCompatActivity {
             }
         });
 
+        out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                startActivity(new Intent(Update.this,Mainpage.class)
+                        .putExtra("userid",userid));
+                finish();
+
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    Dialog dialog = new Dialog(Update.this);
+                    dialog.setContentView(R.layout.dialogview_delete);
+                    dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                    dialog.show();
+
+                    TextView tex1 = dialog.findViewById(R.id.tex1);
+                    Button yes1 = dialog.findViewById(R.id.yes1);
+                    Button no1 = dialog.findViewById(R.id.no1);
+
+                    tex1.getText();
+
+                    yes1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v)
+                        {
+                            Mydatabase dp = new Mydatabase(Update.this);
+                            dp.deletdata(cid);
+
+                            startActivity(new Intent(Update.this,Mainpage.class)
+                                    .putExtra("userid",userid));
+                            finish();
+                        }
+                    });
+
+                    no1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+
+            }
+        });
 
     }
 }

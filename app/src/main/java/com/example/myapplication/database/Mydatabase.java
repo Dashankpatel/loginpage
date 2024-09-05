@@ -45,8 +45,7 @@ public class Mydatabase extends SQLiteOpenHelper {
     // add contact name, number, email, address return & save
     public Boolean addcontact(int userid, String name, String number, String email, String area) {
         try {
-            String insert = "INSERT INTO contact (userid , name , number , email , area) VALUES" +
-                    " (" + userid + " , '" + name + "' , '" + number + "' , '" + email + "' ,'" + area + "')";
+            String insert = "INSERT INTO contact (userid , name , number , email , area) VALUES" + " (" + userid + " , '" + name + "' , '" + number + "' , '" + email + "' ,'" + area + "')";
             getWritableDatabase().execSQL(insert);
             return true;
         } catch (Exception exception) {
@@ -59,17 +58,15 @@ public class Mydatabase extends SQLiteOpenHelper {
     //  user name , number , add etc........... add kare te show karava
     public Cursor selectcon(int userid) {
 
-        String s = "SELECT * FROM contact WHERE userid = "+userid;
+        String s = "SELECT * FROM contact WHERE userid = " + userid;
 
         return getReadableDatabase().rawQuery(s, null);
     }
 
 
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
-
 
 
     // user login username , password OK check karava
@@ -84,9 +81,16 @@ public class Mydatabase extends SQLiteOpenHelper {
 
     public void editdata(String newname, String newnumber, int contactid) {
 
-        String update ="UPDATE contact SET name = '"+newname+"' , number = '"+newnumber+"' WHERE id = "+contactid;
+        String update = "UPDATE contact SET name = '" + newname + "' , number = '" + newnumber + "' WHERE id = " + contactid;
         getWritableDatabase().execSQL(update);
 
 
     }
+
+    public void deletdata(int contactid) {
+        String delete = "DELETE FROM contact WHERE id = " + contactid;
+        getWritableDatabase().execSQL(delete);
+
+    }
+
 }
