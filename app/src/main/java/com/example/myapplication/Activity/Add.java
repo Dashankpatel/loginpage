@@ -24,6 +24,8 @@ public class Add extends AppCompatActivity {
     Button save,cancel;
     TextInputEditText name,number,em,area;
 
+    // new contact data add karva
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,14 +40,15 @@ public class Add extends AppCompatActivity {
 
         int userid = getIntent().getIntExtra("userid",20);
 
+        // new contact data add karva
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Mydatabase dp = new Mydatabase(Add.this);
 
-                String numberInput = number.getText().toString();
                 // number check karava
+                String numberInput = number.getText().toString();
                 if (!numberInput.isEmpty())
                 {
                     // number 10 digit ma j aave aena mate
@@ -57,16 +60,18 @@ public class Add extends AppCompatActivity {
                     }
                 }
 
-                String emailInput = em.getText().toString();
                 //  email address check karava
+                String emailInput = em.getText().toString();
                 if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
                         em.setError("Please enter a valid email address");
                         return;
                 }
 
+                // contact data input karva
                 Boolean t =dp.addcontact(userid,name.getText().toString(),numberInput, emailInput,area.getText().toString());
                 Log.d("llllllllllllllll", "onClick: "+t);
 
+                // all input data ok 6e ae check karva
                 if (t)
                 {
                     startActivity(new Intent(Add.this,Mainpage.class).putExtra("userid",userid));
@@ -76,6 +81,7 @@ public class Add extends AppCompatActivity {
             }
         });
 
+        //  back main page ma aavvaa
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

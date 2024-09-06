@@ -15,6 +15,8 @@ import com.example.myapplication.R;
 
 public class SplaceScreen extends AppCompatActivity {
 
+    // app open thay tyare koi fix app design logo aave aena mate
+
     static SharedPreferences sp;
     static SharedPreferences.Editor edit;
 
@@ -33,6 +35,7 @@ public class SplaceScreen extends AppCompatActivity {
             @Override
             public void run() {
 
+               // user login 6e ke nathi ae check karva
                 if (userstatus){
                     startActivity(new Intent(SplaceScreen.this,Mainpage.class).
                             putExtra("userid",sp.getInt("uid",0)));
@@ -44,7 +47,9 @@ public class SplaceScreen extends AppCompatActivity {
                     finish();
                 }
             }
-        },2000);
+        }
+        // ketla milli second delay karavu 6e ae mate
+        , 2000);
 
 
 

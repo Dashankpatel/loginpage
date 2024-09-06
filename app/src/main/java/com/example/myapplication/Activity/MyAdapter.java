@@ -73,6 +73,7 @@ public class MyAdapter extends BaseAdapter {
                         putExtra("cid",datalist.get(position).getId()).
                         putExtra("userid",uid));
 
+
             }
         });
 

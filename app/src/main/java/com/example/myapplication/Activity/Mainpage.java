@@ -22,7 +22,7 @@ public class Mainpage extends AppCompatActivity {
 
     //    TextView name;
     ListView list;
-    FloatingActionButton add,pop;
+    FloatingActionButton add, pop;
 
 
     @Override
@@ -36,10 +36,10 @@ public class Mainpage extends AppCompatActivity {
 
         int userid = getIntent().getIntExtra("userid", 10);
 
-//        Toast.makeText(this, ""+userid, Toast.LENGTH_SHORT).show();
-
+        // contact list mate
         list.setAdapter(new MyAdapter(this, userid));
 
+        // new contact add karva
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,12 +50,12 @@ public class Mainpage extends AppCompatActivity {
             }
         });
 
-
+        // popup menu open karva
         pop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                PopupMenu pmenu = new PopupMenu(Mainpage.this,pop);
+                PopupMenu pmenu = new PopupMenu(Mainpage.this, pop);
 
                 pmenu.inflate(R.menu.mymenu);
                 pmenu.show();
@@ -64,11 +64,12 @@ public class Mainpage extends AppCompatActivity {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
 
-                        if (item.getItemId()==R.id.logout)
-                        {
+                        if (item.getItemId() == R.id.logout) {
+
+                            // exit karva mate no dialogue box open thase
                             Dialog dialog = new Dialog(Mainpage.this);
                             dialog.setContentView(R.layout.dialogview_exit);
-                            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+                            dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                             dialog.show();
 
                             TextView tex = dialog.findViewById(R.id.tex);
@@ -79,9 +80,8 @@ public class Mainpage extends AppCompatActivity {
 
                             yes.setOnClickListener(new View.OnClickListener() {
                                 @Override
-                                public void onClick(View v)
-                                {
-                                    SplaceScreen.edit.putBoolean("status",false);
+                                public void onClick(View v) {
+                                    SplaceScreen.edit.putBoolean("status", false);
                                     SplaceScreen.edit.apply();
 
                                     startActivity(new Intent(Mainpage.this, Signin.class));
@@ -95,14 +95,13 @@ public class Mainpage extends AppCompatActivity {
                                     dialog.dismiss();
                                 }
                             });
-                        }
 
-                        else if (item.getItemId()==R.id.setting)
-                        {
+                        } else if (item.getItemId() == R.id.setting) {
                             Toast.makeText(Mainpage.this, "setting", Toast.LENGTH_SHORT).show();
                         }
 
                         return false;
+
                     }
                 });
             }

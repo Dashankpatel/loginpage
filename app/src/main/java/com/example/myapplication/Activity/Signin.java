@@ -39,6 +39,7 @@ public class Signin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // user login id - password nakhva
                 Cursor data = dp.userlogin(username.getText().toString(), password.getText().toString());
 
                 while (data.moveToNext()) {
@@ -46,6 +47,7 @@ public class Signin extends AppCompatActivity {
                     Log.d("++ds--", "onClick: name ==>" + data.getString(1));
                     Log.d("++ds--", "onClick: email ==>" + data.getString(2));
 
+                    // last login chalu rakhva mate
                     SplaceScreen.edit.putBoolean("status",true);
                     SplaceScreen.edit.putInt("uid",data.getInt(0));
                     SplaceScreen.edit.apply();
@@ -58,6 +60,7 @@ public class Signin extends AppCompatActivity {
             }
         });
 
+        // new login create karva
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

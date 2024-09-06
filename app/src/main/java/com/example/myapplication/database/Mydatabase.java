@@ -8,6 +8,7 @@ import android.util.Log;
 
 public class Mydatabase extends SQLiteOpenHelper {
 
+    // user all login data , contact data , edit - delete karva mate
 
     public Mydatabase(Context context) {
         super(context, "mydata.db", null, 1);
@@ -17,13 +18,14 @@ public class Mydatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+//        "unique" keyword koi all ma data different aave aena mate
 //        String table = "CREATE TABLE user(username text unique , email text , password text)";
 
-        // login username , email , password
+        // login username , email , password (login user dat table "user data")
         String table = "CREATE TABLE user(id integer primary key autoincrement,username text , email text , password text)";
         db.execSQL(table);
 
-        // add contact name, number, email, address
+        // add contact name, number, email, address (login user contact table "contact data")
         String contact = "CREATE TABLE contact(id integer primary key autoincrement , userid integer , name text , number text , email text , area text)";
         db.execSQL(contact);
 
@@ -69,7 +71,7 @@ public class Mydatabase extends SQLiteOpenHelper {
     }
 
 
-    // user login username , password OK check karava
+    // user login username , password OK check karva
     public Cursor userlogin(String user, String pass) {
 
         String select = "SELECT * FROM user WHERE username = '" + user + "' AND password = '" + pass + "'  ";
@@ -79,6 +81,7 @@ public class Mydatabase extends SQLiteOpenHelper {
         return cr;
     }
 
+    // contact data edit karva
     public void editdata(String newname, String newnumber, int contactid) {
 
         String update = "UPDATE contact SET name = '" + newname + "' , number = '" + newnumber + "' WHERE id = " + contactid;
@@ -87,6 +90,7 @@ public class Mydatabase extends SQLiteOpenHelper {
 
     }
 
+    // contact data delete karva
     public void deletdata(int contactid) {
         String delete = "DELETE FROM contact WHERE id = " + contactid;
         getWritableDatabase().execSQL(delete);

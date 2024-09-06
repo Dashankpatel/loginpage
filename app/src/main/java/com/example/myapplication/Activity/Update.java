@@ -20,6 +20,8 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class Update extends AppCompatActivity {
 
+    // contact data edit - delete karva
+
     Button save,out,delete;
     TextInputEditText oldname,oldnumber,em,area;
 
@@ -34,6 +36,7 @@ public class Update extends AppCompatActivity {
         out=findViewById(R.id.out);
         delete=findViewById(R.id.delete);
 
+        // data edit karva
         String updatename = getIntent().getStringExtra("name");
         String updatenumber = getIntent().getStringExtra("num");
         int cid = getIntent().getIntExtra("cid",50);
@@ -41,10 +44,9 @@ public class Update extends AppCompatActivity {
         oldname.setText(updatename);
         oldnumber.setText(updatenumber);
 
-
-
         int userid = getIntent().getIntExtra("userid",20);
 
+        // edit data save karva
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,10 +73,12 @@ public class Update extends AppCompatActivity {
             }
         });
 
+        // data delete karva
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // dialogue box open karva
                     Dialog dialog = new Dialog(Update.this);
                     dialog.setContentView(R.layout.dialogview_delete);
                     dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -105,9 +109,9 @@ public class Update extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     });
-
             }
         });
 
     }
+
 }
