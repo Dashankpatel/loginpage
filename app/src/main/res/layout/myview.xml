@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:textColor="@color/black"
-        android:background="#595959"
+        android:background="#EDBBBB"
         android:textStyle="bold"
         android:textSize="30sp" />
 
@@ -18,10 +18,10 @@
         android:id="@+id/snum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#A0A0A0"
+        android:background="#D999E4"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
 
 </LinearLayout>

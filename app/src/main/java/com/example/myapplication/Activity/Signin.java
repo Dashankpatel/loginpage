@@ -52,6 +52,7 @@ public class Signin extends AppCompatActivity {
                     SplaceScreen.edit.putInt("uid",data.getInt(0));
                     SplaceScreen.edit.apply();
 
+                    // next main page ma java mate
                     startActivity(new Intent(Signin.this, Mainpage.class).
                             putExtra("userid",data.getInt(0)).
                             putExtra("name",data.getString(1)));

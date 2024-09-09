@@ -47,6 +47,9 @@ public class Add extends AppCompatActivity {
 
                 Mydatabase dp = new Mydatabase(Add.this);
 
+                // contact name alphabet ma aave
+                String nameInput = name.getText().toString();
+
                 // number check karava
                 String numberInput = number.getText().toString();
                 if (!numberInput.isEmpty())
@@ -68,7 +71,7 @@ public class Add extends AppCompatActivity {
                 }
 
                 // contact data input karva
-                Boolean t =dp.addcontact(userid,name.getText().toString(),numberInput, emailInput,area.getText().toString());
+                Boolean t =dp.addcontact(userid , nameInput , numberInput , emailInput , area.getText().toString());
                 Log.d("llllllllllllllll", "onClick: "+t);
 
                 // all input data ok 6e ae check karva

@@ -18,7 +18,7 @@ public class Signup extends AppCompatActivity {
 
     TextView account;
     Button createuser;
-    TextInputEditText user,email,pass1,pass2;
+    TextInputEditText user, email, pass1, pass2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +55,13 @@ public class Signup extends AppCompatActivity {
                 if (password1.equals(password2)) {
                     Boolean d = dp.insertdata(user.getText().toString(), emailInput, password1);
 
-                    if (d==true)
-                    {
-                        startActivity(new Intent(Signup.this,Signin.class));
+                    if (d == true) {
+                        startActivity(new Intent(Signup.this, Signin.class));
+                        Toast.makeText(Signup.this, "Account created", Toast.LENGTH_SHORT).show();
                         finish();
                     }
-
-                } else {
+                }
+                else {
                     Toast.makeText(Signup.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -73,14 +73,12 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(Signup.this,Signin.class));
+                startActivity(new Intent(Signup.this, Signin.class));
                 finish();
 
 
             }
         });
-
-
 
 
     }
