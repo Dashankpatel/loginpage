@@ -13,6 +13,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.database.Mydatabase;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class MyAdapter extends BaseAdapter {
 
@@ -36,6 +37,25 @@ public class MyAdapter extends BaseAdapter {
             datalist.add(d);
 
         }
+
+        ArrayList<String> namelist = new ArrayList();
+        for (int i = 0; i < datalist.size(); i++) {
+            namelist.add(datalist.get(i).getName());
+        }
+        namelist.sort(Comparator.naturalOrder());
+
+        ArrayList<ModelClass> tmp = new ArrayList<>();
+        for (int i = 0; i < datalist.size(); i++) {
+
+            for (int j = 0; j < datalist.size(); j++) {
+                if (namelist.get(i) == datalist.get(j).getName()) {
+                    tmp.add(datalist.get(j));
+                    break;
+                }
+            }
+        }
+        datalist = tmp;
+
     }
 
     @Override
@@ -60,6 +80,7 @@ public class MyAdapter extends BaseAdapter {
 
         TextView name = vv.findViewById(R.id.sname), num = vv.findViewById(R.id.snum);
 
+
         name.setText(datalist.get(position).getName());
         num.setText(datalist.get(position).getNum());
 
@@ -67,11 +88,11 @@ public class MyAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                context.startActivity(new Intent(context, Update.class).
-                        putExtra("name",name.getText()).
-                        putExtra("num",num.getText()).
-                        putExtra("cid",datalist.get(position).getId()).
-                        putExtra("userid",uid));
+                context.startActivity(new Intent(context, Update.class)
+                        .putExtra("name", name.getText())
+                        .putExtra("num", num.getText())
+                        .putExtra("cid", datalist.get(position).getId())
+                        .putExtra("userid", uid));
 
 
             }

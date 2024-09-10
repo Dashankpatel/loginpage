@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +54,6 @@ public class Update extends AppCompatActivity {
 
                 Mydatabase dp = new Mydatabase(Update.this);
                 dp.editdata(oldname.getText().toString(),oldnumber.getText().toString(),cid);
-
 
                 startActivity(new Intent(Update.this,Mainpage.class)
                         .putExtra("userid",userid));
