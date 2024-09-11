@@ -96,9 +96,6 @@
             android:layout_weight="1"
             android:textColor="@color/white"
             android:text="Cancel"/>
-
-
-
     </LinearLayout>
 
     <TextView
@@ -121,7 +118,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:backgroundTint="@color/black"
-            android:layout_margin="10dp"
+            android:layout_margin="10sp"
             android:textColor="@color/white"
             android:text="Delete"/>
 

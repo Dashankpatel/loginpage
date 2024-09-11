@@ -18,10 +18,10 @@ public class Mydatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-//        "unique" keyword koi all ma data different aave aena mate
+//        "unique" keyword all ma data different aave aena mate
 //        String table = "CREATE TABLE user(username text unique , email text , password text)";
 
-        // login username , email , password (login user dat table "user data")
+        // login username , email , password (login user data table "user data")
         String table = "CREATE TABLE user(id integer primary key autoincrement,username text , email text , password text)";
         db.execSQL(table);
 

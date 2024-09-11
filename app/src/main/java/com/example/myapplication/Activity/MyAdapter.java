@@ -38,6 +38,7 @@ public class MyAdapter extends BaseAdapter {
 
         }
 
+        // contact list name alphabet ma aave aena mate
         ArrayList<String> namelist = new ArrayList();
         for (int i = 0; i < datalist.size(); i++) {
             namelist.add(datalist.get(i).getName());
@@ -84,6 +85,7 @@ public class MyAdapter extends BaseAdapter {
         name.setText(datalist.get(position).getName());
         num.setText(datalist.get(position).getNum());
 
+        // data edit-delete karva mate & complete thay gaya baad main page ma aavava mate
         name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

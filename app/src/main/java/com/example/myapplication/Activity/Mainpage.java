@@ -3,6 +3,7 @@ package com.example.myapplication.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.database.Mydatabase;
@@ -20,8 +22,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class Mainpage extends AppCompatActivity {
 
-    //    TextView name;
     ListView list;
+    SearchView search;
     FloatingActionButton add, pop;
 
 
@@ -33,6 +35,24 @@ public class Mainpage extends AppCompatActivity {
         add = findViewById(R.id.add);
         list = findViewById(R.id.list);
         pop = findViewById(R.id.pop);
+        search = findViewById(R.id.search);
+
+        // list ma data serach karva
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                Log.d("-----", "onQueryTextSubmit: "+query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                Log.d("-----", "onQueryTextChange: "+newText);
+                return false;
+            }
+        });
 
         int userid = getIntent().getIntExtra("userid", 10);
 
