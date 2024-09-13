@@ -21,41 +21,11 @@ public class MyAdapter extends BaseAdapter {
     Context context;
     int uid;
 
-    MyAdapter(Context context, int uid) {
+    MyAdapter(Context context, int uid ,ArrayList<ModelClass> datalist) {
         this.context = context;
         this.uid = uid;
+        this.datalist = datalist;
 
-        Mydatabase db = new Mydatabase(context);
-        Cursor cr = db.selectcon(uid);
-
-        while (cr.moveToNext()) {
-
-            ModelClass d = new ModelClass();
-            d.setName(cr.getString(2));
-            d.setNum(cr.getString(3));
-            d.setId(cr.getInt(0));
-            datalist.add(d);
-
-        }
-
-        // contact list name alphabet ma aave aena mate
-        ArrayList<String> namelist = new ArrayList();
-        for (int i = 0; i < datalist.size(); i++) {
-            namelist.add(datalist.get(i).getName());
-        }
-        namelist.sort(Comparator.naturalOrder());
-
-        ArrayList<ModelClass> tmp = new ArrayList<>();
-        for (int i = 0; i < datalist.size(); i++) {
-
-            for (int j = 0; j < datalist.size(); j++) {
-                if (namelist.get(i) == datalist.get(j).getName()) {
-                    tmp.add(datalist.get(j));
-                    break;
-                }
-            }
-        }
-        datalist = tmp;
 
     }
 

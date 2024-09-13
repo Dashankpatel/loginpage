@@ -2,6 +2,7 @@ package com.example.myapplication.Activity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -20,16 +21,21 @@ import com.example.myapplication.R;
 import com.example.myapplication.database.Mydatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+
 public class Mainpage extends AppCompatActivity {
 
     ListView list;
     SearchView search;
     FloatingActionButton add, pop;
 
+    ArrayList<ModelClass> datalist = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_mainpage);
 
         add = findViewById(R.id.add);
@@ -37,27 +43,78 @@ public class Mainpage extends AppCompatActivity {
         pop = findViewById(R.id.pop);
         search = findViewById(R.id.search);
 
+        ArrayList<ModelClass> searchlist = new ArrayList<>();
+
+        int userid = getIntent().getIntExtra("userid", 10);
+
+        Mydatabase db = new Mydatabase(this);
+        Cursor cr = db.selectcon(userid);
+
+        while (cr.moveToNext()) {
+
+            ModelClass d = new ModelClass();
+            d.setName(cr.getString(2));
+            d.setNum(cr.getString(3));
+            d.setId(cr.getInt(0));
+            datalist.add(d);
+
+        }
+
+        // contact list name alphabet ma aave aena mate
+        ArrayList<String> namelist = new ArrayList();
+        for (int i = 0; i < datalist.size(); i++) {
+            namelist.add(datalist.get(i).getName());
+        }
+        namelist.sort(Comparator.naturalOrder());
+
+        ArrayList<ModelClass> tmp = new ArrayList<>();
+        for (int i = 0; i < datalist.size(); i++) {
+
+            for (int j = 0; j < datalist.size(); j++) {
+                if (namelist.get(i) == datalist.get(j).getName()) {
+                    tmp.add(datalist.get(j));
+                    break;
+                }
+            }
+        }
+        datalist = tmp;
+
         // list ma data serach karva
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
+
+            // submit ni click thay pa6i data show karava
             public boolean onQueryTextSubmit(String query) {
 
                 Log.d("-----", "onQueryTextSubmit: "+query);
                 return false;
             }
 
+            // text type thay tyare data show karva
             @Override
             public boolean onQueryTextChange(String newText) {
 
                 Log.d("-----", "onQueryTextChange: "+newText);
+                searchlist.clear();
+
+                //datalist ma contact na data search karava mate
+                for (int i=0 ;i<datalist.size();i++)
+                {
+                   if (datalist.get(i).getName().contains(newText))
+                   {
+                       searchlist.add(datalist.get(i));
+                   }
+                }
+
+                // search karavel data contact list ma show karava
+                list.setAdapter(new MyAdapter(Mainpage.this, userid,searchlist));
+
                 return false;
             }
         });
 
-        int userid = getIntent().getIntExtra("userid", 10);
-
-        // contact list mate
-        list.setAdapter(new MyAdapter(this, userid));
+        // contact list show karava mate
+        list.setAdapter(new MyAdapter(this, userid,datalist));
 
         // new contact add karva
         add.setOnClickListener(new View.OnClickListener() {
