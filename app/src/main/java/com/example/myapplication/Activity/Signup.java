@@ -60,8 +60,7 @@ public class Signup extends AppCompatActivity {
                         Toast.makeText(Signup.this, "Account created", Toast.LENGTH_SHORT).show();
                         finish();
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(Signup.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                 }
             }
