@@ -25,8 +25,6 @@ public class MyAdapter extends BaseAdapter {
         this.context = context;
         this.uid = uid;
         this.datalist = datalist;
-
-
     }
 
     @Override
